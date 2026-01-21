@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Page</title>
+    <style>
+        body{
+            background-color: rgb(69, 7, 126);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        .sign{
+            width: 500px;
+            height: 350px;
+            margin: 100px auto;
+            background-color: rgb(99, 8, 184);
+            border-radius: 30px;
+            padding: 20px;
+            text-align: center;
+        }
+        input {
+            width: 30%;
+            padding: 8px;
+            margin: 7px 0;
+        }
+        .btn{
+            background-color: rgb(69, 7, 126);
+            color: white;
+            margin: 10px 10px 10px 10px;
+            padding: 10px;
+            height: 45px;
+            width: 80px;
+            border-color: white;
+            border-radius: 10px;
+        }
+        .btn:hover{
+            background-color: rgb(99, 8, 184);
+        }
+        .sign h1{
+            color: white;
+        }
+        .sign label{
+            color: white;
+        }
+    </style>
+</head>
+<body>
+    <div class="sign">
+        <h1>Login Page</h1>
+        <form>
+            <label>Username :</label>
+            <input type="text" placeholder="Enter name" required><br><br>
+            <label>Password :</label>
+            <input type="password" placeholder="Enter password" required><br><br>
+            <button type="submit" class="btn" onclick="signin()">Sign-in</button><br>
+            <p style="color: white;">If you don't have an account? <a href="register.html" style="text-decoration: none; color: rgb(247, 67, 67);">!!!CLICK HERE!!!</a></p>
+        </form>
+    </div>
+    <script>
+       function signin() {
+        event.preventDefault(); // stop page reload
+
+        let enteredUsername = document.querySelector('input[type="text"]').value;
+        let enteredPassword = document.querySelector('input[type="password"]').value;
+
+        let storedUsername = localStorage.getItem("username");
+        let storedPassword = localStorage.getItem("password");
+
+        if (enteredUsername === storedUsername && enteredPassword === storedPassword) {
+            alert("Login Successful");
+        } else {
+            alert("Invalid Username or Password");
+        }
+    }
+</script>
+</body>
+</html>

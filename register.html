@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Register Page</title>
+    <style>
+        body {
+            background-color: rgb(69, 7, 126);
+            font-family: Arial, Helvetica, sans-serif;
+        }
+
+        .box {
+            width: 500px;
+            height: 400px;
+            margin: 100px auto;
+            background-color: rgb(99, 8, 184);
+            border-radius: 30px;
+            padding: 20px;
+            text-align: center;
+        }
+
+        input {
+            width: 40%;
+            padding: 8px;
+            margin: 7px 0;
+        }
+
+        button {
+            background-color: rgb(69, 7, 126);
+            color: white;
+            margin: 10px 10px 10px 10px;
+            padding: 10px;
+            height: 45px;
+            width: 80px;
+            border-color: white;
+            border-radius: 10px;
+        }
+        a {
+            text-decoration: none;
+            color: rgb(247, 67, 67);
+        }
+        button:hover{
+            background-color: rgb(99, 8, 184);
+        }
+        label{
+            color: white;
+            margin: 10px 10px 10px 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2 style="color: white;">Register Page</h2>
+    <form>
+        <label>Username :</label>
+        <input type="text" placeholder="Enter name" required><br><br>
+        <label>E - mail Id :</label>
+        <input type="email" placeholder="Email" required><br><br>
+        <label>Password :</label>
+        <input type="password" placeholder="Password" required><br><br>
+        <button type="submit" onclick="register()">Register</button>
+    </form>
+    <p style="color: white;">Already have an account? <a href="login.html">Login</a></p>
+</div>
+<script>
+    function register() {
+        event.preventDefault(); // stop page reload
+
+        let username = document.querySelector('input[type="text"]').value;
+        let email = document.querySelector('input[type="email"]').value;
+        let password = document.querySelector('input[type="password"]').value;
+
+        if (username === "" || email === "" || password === "") {
+            alert("All fields are required");
+            return;
+        }
+
+        localStorage.setItem("username", username);
+        localStorage.setItem("password", password);
+
+        alert("Registered Successfully");
+        window.location.href = "login.html";
+    }
+</script>
+</body>
+</html>
